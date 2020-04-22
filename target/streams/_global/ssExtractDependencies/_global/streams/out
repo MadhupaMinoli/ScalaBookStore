@@ -1,7 +1,3 @@
-[debug] "not up to date. inChanged = true, force = false
-[debug] Updating ...
-[warn] 
-[warn] 	Note: Unresolved dependencies path:
 [error] sbt.librarymanagement.ResolveException: Error downloading net.liftweb:lift-json_2.11:2.5+
 [error]   No version found for [2.5,2.5.max] in 
 [error]   No version found for [2.5,2.5.max] in 
@@ -37,7 +33,7 @@
 [error] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
 [error] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 [error] 	at java.lang.Thread.run(Thread.java:745)
-[error] (update) sbt.librarymanagement.ResolveException: Error downloading net.liftweb:lift-json_2.11:2.5+
+[error] (ssExtractDependencies) sbt.librarymanagement.ResolveException: Error downloading net.liftweb:lift-json_2.11:2.5+
 [error]   No version found for [2.5,2.5.max] in 
 [error]   No version found for [2.5,2.5.max] in 
 [error]   not found: C:\Users\User\.ivy2\local\net.liftweb\lift-json_2.11

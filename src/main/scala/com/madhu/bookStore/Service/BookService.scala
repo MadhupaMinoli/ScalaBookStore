@@ -1,17 +1,26 @@
 package com.madhu.bookStore.Service
 
+import com.google.gson.Gson
 import com.madhu.bookStore.Model.Book
 import com.madhu.bookStore.Repository.BookRepository
 
-import scala.collection.mutable
 
 object BookService {
 
-  def addBook(b:Book):Any={
-    BookRepository.addBook(b)
+
+
+  def getAllBooks():String={
+    new Gson().toJson(BookRepository.getAllBooks.values.toArray)
+
   }
-  def getAllBooks():Unit={
-    BookRepository.getAllBooks
+
+  def searchByISBN(isbn:Long):Option[Book]={
+    BookRepository.searchByISBN(isbn)
   }
+
+  def insertBook(b:Book):Unit={
+    BookRepository.insertBook(b)
+  }
+
 
 }
