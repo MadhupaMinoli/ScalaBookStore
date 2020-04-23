@@ -41,6 +41,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/unins001.exe" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -172,8 +173,8 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3174958760305" />
-        <entry key="$PROJECT_DIR$/build.sbt" value="4162126805" />
+        <entry key="$PROJECT_DIR$" value="3175043572155" />
+        <entry key="$PROJECT_DIR$/build.sbt" value="3428759585" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="2620759781" />
       </map>
     </option>
@@ -194,7 +195,8 @@
       <option name="presentableId" value="Default" />
       <updated>1587479372520</updated>
       <workItem from="1587479403453" duration="7127000" />
-      <workItem from="1587524953720" duration="20426000" />
+      <workItem from="1587524953720" duration="21648000" />
+      <workItem from="1587613650362" duration="31791000" />
     </task>
     <servers />
   </component>
