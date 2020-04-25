@@ -19,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Scala Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,6 +51,9 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.madhu.bookStore" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.madhu.server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -196,7 +199,8 @@
       <updated>1587479372520</updated>
       <workItem from="1587479403453" duration="7127000" />
       <workItem from="1587524953720" duration="21648000" />
-      <workItem from="1587613650362" duration="31791000" />
+      <workItem from="1587613650362" duration="31988000" />
+      <workItem from="1587698933423" duration="16734000" />
     </task>
     <servers />
   </component>

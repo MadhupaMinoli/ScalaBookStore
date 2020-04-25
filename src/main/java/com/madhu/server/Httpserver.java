@@ -12,24 +12,19 @@ import java.util.stream.Stream;
 
 import com.google.gson.Gson;
 import com.madhu.bookStore.Controller.BookController;
-
 import com.madhu.bookStore.Model.Book;
-import com.madhu.bookStore.Service.BookService;
-import com.madhu.bookStore.Utility.UrlSplitter;
-import com.sun.net.httpserver.Headers;
+import com.madhu.bookStore.Model.Response;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import scala.collection.mutable.HashMap;
+import scala.Tuple2;
 import scala.collection.mutable.StringBuilder;
 
 public class Httpserver {
 
     public static void main(String[] args) throws Exception {
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
-
-            server.createContext("/books", new MyHandler());
-
+        server.createContext("/books", new MyHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
     }
@@ -38,9 +33,9 @@ public class Httpserver {
         @Override
         public void handle(HttpExchange t) throws IOException {
             URI uri= t.getRequestURI();
-            String route=null;
+            Response response=null;
             if("GET".equals(t.getRequestMethod())) {
-                route =  BookController.getRoute(uri);
+              response = BookController.getRoute(uri);
             }else if("POST".equals(t.getRequestMethod())) {
 
                 InputStreamReader isr = new InputStreamReader(t.getRequestBody(), StandardCharsets.UTF_8);
@@ -48,25 +43,29 @@ public class Httpserver {
                 StringBuilder stringBuilder = new StringBuilder();
                 query.forEach((s) -> stringBuilder.append(s).append("\n"));
                 String requestBody=stringBuilder.toString();
-
-                System.out.println(requestBody);
-                System.out.println(new Gson().fromJson(requestBody, Book.class));
-                BookController.postRoute(new Gson().fromJson(requestBody, Book.class));
+                if (requestBody.isEmpty()){
+                    response= new Response("Request body cannot be empty.",400);}
+                else{
+                    Book postingBook = new Gson().fromJson(requestBody, Book.class);
+                    response = BookController.postRoute(postingBook, uri);
+                }
             }
 
-
-            writeResponse(t,route);
+            writeResponse(t,response);
         }
 
 
 
 
 
-        public static void writeResponse(HttpExchange httpExchange, String response) throws IOException {
-            httpExchange.sendResponseHeaders(200, response.length());
+        public static void writeResponse(HttpExchange httpExchange, Response response )throws IOException {
+
+           httpExchange.getResponseHeaders().add("Content-type", " application/json; charset=utf-8");
+            httpExchange.sendResponseHeaders(response.statusCode(), response.message().length());
             OutputStream os = httpExchange.getResponseBody();
-            os.write(response.getBytes());
+            os.write(response.message().getBytes());
             os.close();
+
         }
     }
 
