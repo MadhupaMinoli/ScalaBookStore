@@ -20,15 +20,22 @@ object BookRepository {
 
   def insertBook(book:Book):Book={
 
-    if( searchByISBN(book.isbn) == null) {
-          book.quantity=1;
-          bookList += (book.isbn -> book)
-      }
-    else {
-         bookList(book.isbn).quantity +=1
-       }
-    bookList(book.isbn)
+    def addBook:Book={
+      if( searchByISBN(book.isbn) == null)  addNewBook else updateExistingBookQuantity
+    }
 
+    def addNewBook:Book={
+      book.quantity=1;
+      bookList += (book.isbn -> book)
+      bookList(book.isbn)
+    }
+
+    def updateExistingBookQuantity:Book= {
+      bookList(book.isbn).quantity +=1
+      bookList(book.isbn)
+    }
+
+    addBook
   }
 
   def searchByISBN(isbn:Long):Book= {
