@@ -176,8 +176,8 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3175043572155" />
-        <entry key="$PROJECT_DIR$/build.sbt" value="3428759585" />
+        <entry key="$PROJECT_DIR$" value="3175566843329" />
+        <entry key="$PROJECT_DIR$/build.sbt" value="1126637524" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="2620759781" />
       </map>
     </option>
@@ -201,7 +201,7 @@
       <workItem from="1587524953720" duration="21648000" />
       <workItem from="1587613650362" duration="31988000" />
       <workItem from="1587698933423" duration="17012000" />
-      <workItem from="1587877764081" duration="6102000" />
+      <workItem from="1587877764081" duration="11821000" />
     </task>
     <servers />
   </component>

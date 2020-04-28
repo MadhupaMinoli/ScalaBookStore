@@ -60,7 +60,7 @@ public class Httpserver {
 
         public static void writeResponse(HttpExchange httpExchange, Response response )throws IOException {
 
-           httpExchange.getResponseHeaders().add("Content-type", " application/json; charset=utf-8");
+            httpExchange.getResponseHeaders().add("Content-type", " application/json; charset=utf-8");
             httpExchange.sendResponseHeaders(response.statusCode(), response.message().length());
             OutputStream os = httpExchange.getResponseBody();
             os.write(response.message().getBytes());

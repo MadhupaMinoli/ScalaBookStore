@@ -9,7 +9,7 @@ object BookRepository {
   val b2 =Book(9781444907957L, "Famous Five", "Enid Blyton")
   val b3 =Book(97814449507957L, "Famous Five", "Enid Blyton")
 
-  var bookList = mutable.HashMap[Long, Book](b1.isbn->(b1),b2.isbn ->(b2),b3.isbn ->(b3))
+  private var bookList = mutable.HashMap[Long, Book](b1.isbn->(b1),b2.isbn ->(b2),b3.isbn ->(b3))
 
 
   def getAllBooks:mutable.HashMap[Long, Book]= {
