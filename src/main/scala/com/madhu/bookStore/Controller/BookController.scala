@@ -4,7 +4,7 @@ import java.net.URI
 
 import com.madhu.bookStore.Model.{Book, Response}
 import com.madhu.bookStore.Service.BookService
-import com.madhu.bookStore.Utility.{JsonParser, UrlSplitter}
+import com.madhu.bookStore.Utility.{JsonParser, ResponseCreator, UrlSplitter}
 
 
 object BookController {
@@ -14,18 +14,16 @@ object BookController {
 
     pathList.length match {
       case 1 if (url.getQuery == null)
-      => createSuccessResponse(JsonParser.objectToJson(BookService.getAllBooks()))
+      => ResponseCreator.successResponse(JsonParser.objectToJson(BookService.getAllBooks()))
       case 1 if (url.getQuery != null)
-      => createSuccessResponse(JsonParser.objectToJson(BookService.search(url.getQuery.split('=')(0).toLowerCase(), url.getQuery.split('=')(1).toLowerCase)))
+      => ResponseCreator.successResponse(JsonParser.objectToJson(BookService.search(url.getQuery.split('=')(0).toLowerCase(), url.getQuery.split('=')(1).toLowerCase)))
       case 3 if (pathList(1) == "book")
-      => createSuccessResponse(JsonParser.objectToJson(BookService.searchByISBN(pathList(2).toLong)))
-      case _ => createInvalidResponse
+      => ResponseCreator.successResponse(JsonParser.objectToJson(BookService.searchByISBN(pathList(2).toLong)))
+      case _ => ResponseCreator.InvalidResponse
     }
   }
 
-  def createSuccessResponse(string: String): Response = new Response(string, 200)
 
-  def createInvalidResponse: Response = new Response("Invalid Request", 400)
 
   def postRoute(book: Book, url: URI): Response = {
 
@@ -33,8 +31,8 @@ object BookController {
 
     pathList.length match {
       case 2 if (pathList(1) == "book")
-      => createSuccessResponse(JsonParser.objectToJson(BookService.insertBook(book)))
-      case _ => createInvalidResponse
+      => ResponseCreator.successResponse(JsonParser.objectToJson(BookService.insertBook(book)))
+      case _ => ResponseCreator.InvalidResponse
     }
   }
 }

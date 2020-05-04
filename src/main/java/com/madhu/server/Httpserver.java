@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.madhu.bookStore.Controller.BookController;
 import com.madhu.bookStore.Model.Book;
 import com.madhu.bookStore.Model.Response;
+import com.madhu.bookStore.Utility.ResponseCreator;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -29,7 +30,7 @@ public class Httpserver {
 
     static class MyHandler implements HttpHandler {
         public static void writeResponse(HttpExchange httpExchange, Response response) throws IOException {
-            httpExchange.getResponseHeaders().add("Content-type", " application/json; charset=utf-8");
+            httpExchange.getResponseHeaders().add("Content-type", response.responseType());
             httpExchange.sendResponseHeaders(response.statusCode(), response.message().length());
             OutputStream os = httpExchange.getResponseBody();
             os.write(response.message().getBytes());
@@ -49,7 +50,7 @@ public class Httpserver {
                 query.forEach((s) -> stringBuilder.append(s).append("\n"));
                 String requestBody = stringBuilder.toString();
                 if (requestBody.isEmpty()) {
-                    response = new Response("Request body cannot be empty.", 400);
+                    response = ResponseCreator.emptyRequestBodyResponse();
                 } else {
                     Book postingBook = new Gson().fromJson(requestBody, Book.class);
                     response = BookController.postRoute(postingBook, uri);
