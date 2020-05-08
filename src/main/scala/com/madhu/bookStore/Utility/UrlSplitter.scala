@@ -1,6 +1,5 @@
 package com.madhu.bookStore.Utility
 
-
 object UrlSplitter {
     def pathToList(path : String): List[String] = path.split("/").toList.tail
 

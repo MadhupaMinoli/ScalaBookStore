@@ -5,7 +5,7 @@ import com.madhu.bookStore.Model.Book
 import scala.collection.mutable
 
 object BookRepository {
-  val b1 = Book(9783161484100L, "HarryPotter", "JK Rowling")
+  val b1 = Book(9783161484100L, "Harry Potter", "JK Rowling")
   val b2 = Book(9781444907957L, "Famous Five", "Enid Blyton")
   val b3 = Book(97814449507957L, "Famous Five", "Enid Blyton")
 
@@ -14,7 +14,6 @@ object BookRepository {
   def getAllBooks: mutable.HashMap[Long, Book] = bookList
 
   def insertBook(book: Book): Book = {
-
     def addBook: Book = if (searchByISBN(book.isbn) == None) addNewBook else updateExistingBookQuantity
 
     def addNewBook: Book = {
@@ -36,5 +35,9 @@ object BookRepository {
   def search(name: String, value: String): Iterable[Book] = name match {
     case "author" => bookList.values.filter(book => book.author.toLowerCase() == value)
     case "title" => bookList.values.filter(book => book.title.toLowerCase() == value)
+  }
+
+  def search (value:String) : Iterable[Book] ={
+    bookList.values.filter(book => book.author.toLowerCase() == value || book.title.toLowerCase() == value)
   }
 }

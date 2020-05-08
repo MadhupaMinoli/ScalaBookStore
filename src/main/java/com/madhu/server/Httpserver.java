@@ -42,13 +42,17 @@ public class Httpserver {
             URI uri = t.getRequestURI();
             Response response = null;
             if ("GET".equals(t.getRequestMethod())) {
+
                 response = BookController.getRoute(uri);
+
             } else if ("POST".equals(t.getRequestMethod())) {
+
                 InputStreamReader isr = new InputStreamReader(t.getRequestBody(), StandardCharsets.UTF_8);
                 Stream<String> query = new BufferedReader(isr).lines();
                 StringBuilder stringBuilder = new StringBuilder();
                 query.forEach((s) -> stringBuilder.append(s).append("\n"));
                 String requestBody = stringBuilder.toString();
+
                 if (requestBody.isEmpty()) {
                     response = ResponseCreator.emptyRequestBodyResponse();
                 } else {

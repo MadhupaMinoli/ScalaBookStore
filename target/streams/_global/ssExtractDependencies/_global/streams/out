@@ -1,8 +1,8 @@
-[error] sbt.librarymanagement.ResolveException: Error downloading net.liftweb:lift-json_2.11:2.5+
-[error]   No version found for [2.5,2.5.max] in 
-[error]   No version found for [2.5,2.5.max] in 
-[error]   not found: C:\Users\User\.ivy2\local\net.liftweb\lift-json_2.11
-[error]   No version found for [2.5,2.5.max] in https://repo1.maven.org/maven2/net/liftweb/lift-json_2.11/maven-metadata.xml
+[error] sbt.librarymanagement.ResolveException: Error downloading org.scala-lang:scala-library:2.12.07
+[error]   Not found
+[error]   Not found
+[error]   not found: C:\Users\madhupa\.ivy2\local\org.scala-lang\scala-library\2.12.07\ivys\ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.07/scala-library-2.12.07.pom
 [error] 	at lmcoursier.CoursierDependencyResolution.unresolvedWarningOrThrow(CoursierDependencyResolution.scala:247)
 [error] 	at lmcoursier.CoursierDependencyResolution.$anonfun$update$35(CoursierDependencyResolution.scala:216)
 [error] 	at scala.util.Either$LeftProjection.map(Either.scala:573)
@@ -30,11 +30,11 @@
 [error] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 [error] 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
 [error] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-[error] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-[error] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-[error] 	at java.lang.Thread.run(Thread.java:745)
-[error] (ssExtractDependencies) sbt.librarymanagement.ResolveException: Error downloading net.liftweb:lift-json_2.11:2.5+
-[error]   No version found for [2.5,2.5.max] in 
-[error]   No version found for [2.5,2.5.max] in 
-[error]   not found: C:\Users\User\.ivy2\local\net.liftweb\lift-json_2.11
-[error]   No version found for [2.5,2.5.max] in https://repo1.maven.org/maven2/net/liftweb/lift-json_2.11/maven-metadata.xml
+[error] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+[error] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+[error] 	at java.lang.Thread.run(Thread.java:748)
+[error] (ssExtractDependencies) sbt.librarymanagement.ResolveException: Error downloading org.scala-lang:scala-library:2.12.07
+[error]   Not found
+[error]   Not found
+[error]   not found: C:\Users\madhupa\.ivy2\local\org.scala-lang\scala-library\2.12.07\ivys\ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.07/scala-library-2.12.07.pom

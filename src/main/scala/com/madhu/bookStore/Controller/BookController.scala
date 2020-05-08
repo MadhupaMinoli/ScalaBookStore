@@ -6,7 +6,6 @@ import com.madhu.bookStore.Model.{Book, Response}
 import com.madhu.bookStore.Service.BookService
 import com.madhu.bookStore.Utility.{JsonParser, ResponseCreator, UrlSplitter}
 
-
 object BookController {
   def getRoute(url: URI): Response = {
 
@@ -22,8 +21,6 @@ object BookController {
       case _ => ResponseCreator.InvalidResponse
     }
   }
-
-
 
   def postRoute(book: Book, url: URI): Response = {
 
