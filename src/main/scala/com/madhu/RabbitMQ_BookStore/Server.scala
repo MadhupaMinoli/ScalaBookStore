@@ -53,10 +53,7 @@ object Server {
 
       try {
         val message = new String(delivery.getBody, "UTF-8")
-        println(" [.] delivery: (" + message + ")")
-
         response = "" + RequestController.handle(delivery.getEnvelope.getRoutingKey, message)
-
       } catch {
         case e: Exception => {
           println(" [.] " + e.toString)
@@ -74,6 +71,4 @@ object Server {
     override def handle(consumerTag: String): Unit = {
     }
   }
-
-
 }

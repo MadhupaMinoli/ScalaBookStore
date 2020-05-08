@@ -15,12 +15,16 @@ object Client {
     var clientRPC: Client = null
     var response: String = null
     try {
+      if (args.length < 1) {
+        System.err.println("Enter request type ([GET] [SEARCH] [ADD]) and message")
+        System.exit(1)
+      }
       val requestType = args(0)
       val message = getMessage(args)
       clientRPC = new Client()
-      println(" [x] Requesting " + requestType + "/" + message + " ")
+      println(" [x] Requesting " + requestType + " " + message + " ")
       response = clientRPC.call(requestType, message)
-      println(" [.] Response: '" + response + "'")
+      println(" [.] Received " + response + "")
     } catch {
       case e: Exception => e.printStackTrace()
     } finally {
@@ -65,7 +69,7 @@ object Client {
         .replyTo(replyQueueName)
         .build()
       channel.basicPublish(EXCHANGE_NAME, requestType, props, message.getBytes("UTF-8"))
-      System.out.println(" [x] Sent " + requestType + "/" + message + "")
+      System.out.println(" [x] Sent " + requestType + " " + message + "")
 
       val responseCallback = new ResponseCallback(corrId)
       val cancelCallback = new Cancle
