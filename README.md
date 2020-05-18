@@ -28,34 +28,32 @@ This method will expect a single book, and will create it in the backend. (Poste
 
 ## RabbitMQ Messaging API
 
-Client file should be run with two arguiments `<RequestType>` `<Message>`
+Client files should be run with an arguments `<host>`
 
-There are only three Request Types.
+There are three client object files for each operation
 * GET
 * SEARCH
 * ADD
 
-#### GET `<< >>`
+#### getClient File 
+if message can be given as empty `<< >>`
 
-eg: GET
+this will return all the books in JSON format
 
-By giving empty message this will return all the books in JSON format
-
-#### GET `<<isbn>>`
-
-eg: GET 9781444907957
+#### getClient File 
+ 
+if message can be given as  `<<isbn>>`
 
 This will return a single book defined by the isbn, response should be in JSON format
 
-#### SEARCH `<<query term>>`
+#### searchClient File
 
-eg: SEARCH  Enid Blyton
+if message can be given as `<<query term>>` 
 
 This will search the title and author fields by given `<<search term>>` and return list of books as JSON
 
-#### ADD `<<book>>`
-
-eg: ADD {`\`"isbn`\`":97814449507957,`\`"title`\`":`\`"Famous Five`\`",`\`"author`\`":`\`"Enid Blyton`\`"}
+#### addClient File
+if message can be given as `<<book>>`
 
 This will expect a single book is in JSON, and will create it in the backend. 
 
